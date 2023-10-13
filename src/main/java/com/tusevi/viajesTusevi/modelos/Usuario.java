@@ -1,10 +1,10 @@
 package com.tusevi.viajesTusevi.modelos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Usuario {
@@ -18,6 +18,8 @@ public class Usuario {
     private Integer celular;
     private String correo;
     private String ubicacionActual;
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    private Set<Viaje> viajes = new HashSet<>();
 
     public Usuario() {
     }
@@ -83,5 +85,13 @@ public class Usuario {
 
     public void setUbicacionActual(String ubicacionActual) {
         this.ubicacionActual = ubicacionActual;
+    }
+
+    public Set<Viaje> getViajes() {
+        return viajes;
+    }
+
+    public void setViajes(Set<Viaje> viajes) {
+        this.viajes = viajes;
     }
 }

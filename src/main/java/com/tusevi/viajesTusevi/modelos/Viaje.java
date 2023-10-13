@@ -1,9 +1,6 @@
 package com.tusevi.viajesTusevi.modelos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
@@ -19,7 +16,9 @@ public class Viaje {
     private LocalDateTime fecha;
     private Integer precio;
     private EstadoViaje estado;
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "viaje_id")
+    private Usuario usuario;
     public Viaje() {
     }
 
@@ -77,5 +76,13 @@ public class Viaje {
 
     public void setEstado(EstadoViaje estado) {
         this.estado = estado;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
