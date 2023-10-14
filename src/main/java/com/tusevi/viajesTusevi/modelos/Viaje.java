@@ -16,9 +16,19 @@ public class Viaje {
     private LocalDateTime fecha;
     private Integer precio;
     private EstadoViaje estado;
+    @OneToOne(mappedBy ="viaje",fetch = FetchType.EAGER)
+    private Comentario comentario;
+    @OneToOne(mappedBy ="viaje",fetch = FetchType.EAGER)
+    private Ubicacion ubicacion;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "viaje_id")
+    @JoinColumn(name = "vehiculo_id")
+    private Vehiculo vehiculo;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "usuario_id")
     private Usuario usuario;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "conductor_id")
+    private Conductor conductor;
     public Viaje() {
     }
 
@@ -84,5 +94,37 @@ public class Viaje {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Comentario getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(Comentario comentario) {
+        this.comentario = comentario;
+    }
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public Conductor getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Conductor conductor) {
+        this.conductor = conductor;
     }
 }

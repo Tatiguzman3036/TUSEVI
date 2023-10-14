@@ -20,6 +20,10 @@ public class Usuario {
     private String ubicacionActual;
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private Set<Viaje> viajes = new HashSet<>();
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    private Set<Comentario> comentarios = new HashSet<>();
+    @OneToMany (mappedBy = "usuario",fetch = FetchType.EAGER)
+    private Set<OrdenPago> ordenPagos = new HashSet<>();
 
     public Usuario() {
     }
@@ -93,5 +97,24 @@ public class Usuario {
 
     public void setViajes(Set<Viaje> viajes) {
         this.viajes = viajes;
+    }
+    public void addViajes (Viaje viaje){
+        viaje.setUsuario(this);
+        viajes.add(viaje);
+    }
+
+    public Set<Comentario> getComentarios() {
+        return comentarios;
+    }
+    public void addComentarios(Comentario comentario){
+        comentario.setUsuario(this);
+        comentarios.add(comentario);
+    }
+    public Set<OrdenPago> getOrdenPagos() {
+        return ordenPagos;
+    }
+    public void addPagos (OrdenPago ordenPago){
+        ordenPago.setUsuario(this);
+        ordenPagos.add(ordenPago);
     }
 }

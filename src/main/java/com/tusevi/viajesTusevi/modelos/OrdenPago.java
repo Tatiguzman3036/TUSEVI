@@ -1,12 +1,11 @@
 package com.tusevi.viajesTusevi.modelos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class OrdenPago {
@@ -18,6 +17,11 @@ public class OrdenPago {
     private Integer costo;
     private EstadoDePago estadoDePago;
     private LocalDateTime fecha;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+    @OneToMany(mappedBy = "pagos")
+    private Set<ConductorPago> conductorPagos = new HashSet<>();
 
     public OrdenPago() {
     }
@@ -67,5 +71,22 @@ public class OrdenPago {
 
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Set<ConductorPago> getConductorPagos() {
+        return conductorPagos;
+    }
+
+    public void addConductorPago(ConductorPago conductorPago){
+        conductorPago.setOrdenPago(this);
+        conductorPagos.add(conductorPago);
     }
 }

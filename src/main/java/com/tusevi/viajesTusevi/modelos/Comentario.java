@@ -1,9 +1,6 @@
 package com.tusevi.viajesTusevi.modelos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
@@ -17,6 +14,13 @@ public class Comentario {
     private Integer calificacion;
     private String comentario;
     private LocalDateTime fecha;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "comentario_id")
+    private Usuario usuario;
+    @OneToOne(mappedBy = "comentario", fetch = FetchType.EAGER)
+    private Conductor conductor;
+    @OneToOne(mappedBy = "comentario", fetch = FetchType.EAGER)
+    private Viaje viaje;
 
     public Comentario() {
     }
@@ -57,5 +61,29 @@ public class Comentario {
 
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Conductor getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Conductor conductor) {
+        this.conductor = conductor;
+    }
+
+    public Viaje getViaje() {
+        return viaje;
+    }
+
+    public void setViaje(Viaje viaje) {
+        this.viaje = viaje;
     }
 }
