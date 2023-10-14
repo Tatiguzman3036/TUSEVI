@@ -17,15 +17,14 @@ public class Vehiculo {
     private TipoVehiculo tipoVehiculo;
     private String color;
     private Ubicacion ubicacionActual;
+    private Byte[] cedulaAzul;
+    private Byte[] seguro;
     @OneToMany(mappedBy = "vehiculo", fetch = FetchType.EAGER)
     private Set<Viaje> viajes = new HashSet<>();
     @OneToOne(mappedBy = "vehiculo", fetch = FetchType.EAGER)
     private Conductor conductor;
     @OneToOne(mappedBy = "vehiculo",fetch = FetchType.EAGER)
     private Ubicacion ubicacion;
-    private Byte[] cedulaAzul;
-    private Byte[] seguro;
-
     public Vehiculo() {
     }
 
