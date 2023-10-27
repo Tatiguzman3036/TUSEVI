@@ -20,8 +20,9 @@ public class OrdenPago {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-    @OneToMany(mappedBy = "pagos")
+    @ManyToMany(mappedBy = "ordenPago")
     private Set<ConductorPago> conductorPagos = new HashSet<>();
+
 
     public OrdenPago() {
     }
@@ -85,8 +86,7 @@ public class OrdenPago {
         return conductorPagos;
     }
 
-    public void addConductorPago(ConductorPago conductorPago){
-        conductorPago.setOrdenPago(this);
-        conductorPagos.add(conductorPago);
+    public void setConductorPagos(Set<ConductorPago> conductorPagos) {
+        this.conductorPagos = conductorPagos;
     }
 }

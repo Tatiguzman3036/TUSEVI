@@ -12,9 +12,9 @@ public class Ubicacion {
     private String direccion;
     private double latitud;
     private double longitud;
-    @OneToOne(mappedBy = "ubicacion", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Vehiculo vehiculo;
-    @OneToOne(mappedBy = "ubicacion", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Viaje viaje;
 
     public Ubicacion() {

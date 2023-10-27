@@ -16,7 +16,7 @@ public class Viaje {
     private LocalDateTime fecha;
     private Integer precio;
     private EstadoViaje estado;
-    @OneToOne(mappedBy ="viaje",fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Comentario comentario;
     @OneToOne(mappedBy ="viaje",fetch = FetchType.EAGER)
     private Ubicacion ubicacion;

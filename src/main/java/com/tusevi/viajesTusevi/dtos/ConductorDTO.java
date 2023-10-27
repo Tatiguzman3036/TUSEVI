@@ -6,19 +6,19 @@ import com.tusevi.viajesTusevi.modelos.ConductorPago;
 import com.tusevi.viajesTusevi.modelos.Viaje;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class ConductorDTO {
     private long id;
     private long DNI;
     private String nombre;
     private String apellido;
-    private Integer celular;
+    private String celular;
     private String correo;
-    private Byte[] registroDeConducir;
+//    private Byte[] registroDeConducir;
     private Comentario comentario;
     private Set<Viaje> viajes;
-    private Set<ConductorPago> conductorPagos;
+    private Set<ConductorPago> conductorPago;
+    private String contraseña;
     public ConductorDTO (Conductor conductor){
         this.id = conductor.getId();
         this.DNI = conductor.getDNI();
@@ -26,10 +26,11 @@ public class ConductorDTO {
         this.apellido = conductor.getApellido();
         this.celular = conductor.getCelular();
         this.correo = conductor.getCorreo();
-        this.registroDeConducir = conductor.getRegistroDeConducir();
+//        this.registroDeConducir = conductor.getRegistroDeConducir();
         this.comentario = conductor.getComentario();
         this.viajes = conductor.getViajes();
-        this.conductorPagos = conductor.getTransacciones();
+        this.conductorPago = conductor.getConductorPago();
+        this.contraseña = conductor.getContraseña();
 
     }
 
@@ -49,7 +50,7 @@ public class ConductorDTO {
         return apellido;
     }
 
-    public Integer getCelular() {
+    public String getCelular() {
         return celular;
     }
 
@@ -57,19 +58,23 @@ public class ConductorDTO {
         return correo;
     }
 
-    public Byte[] getRegistroDeConducir() {
-        return registroDeConducir;
-    }
+//    public Byte[] getRegistroDeConducir() {
+//        return registroDeConducir;
+//    }
 
     public Comentario getComentario() {
         return comentario;
+    }
+
+    public String getContraseña() {
+        return contraseña;
     }
 
     public Set<Viaje> getViajes() {
         return viajes;
     }
 
-    public Set<ConductorPago> getConductorPagos() {
-        return conductorPagos;
+    public Set<ConductorPago> getConductorPago() {
+        return conductorPago;
     }
 }

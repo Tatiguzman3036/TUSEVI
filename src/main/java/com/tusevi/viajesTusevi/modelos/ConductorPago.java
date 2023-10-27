@@ -13,7 +13,7 @@ public class ConductorPago {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(strategy = "native", name = "native")
     private long id;
-    private Date fechaTransaccion;
+
     @ManyToOne
     @JoinColumn(name = "pago_id")
     private OrdenPago ordenPago;
@@ -21,6 +21,9 @@ public class ConductorPago {
     @ManyToOne
     @JoinColumn(name = "conductor_id")
     private Conductor conductor;
+
+    private Date fechaTransaccion;
+
     public ConductorPago() {
     }
 
@@ -40,8 +43,8 @@ public class ConductorPago {
         return ordenPago;
     }
 
-    public void setOrdenPago(OrdenPago pago) {
-        this.ordenPago = pago;
+    public void setOrdenPago(OrdenPago ordenPago) {
+        this.ordenPago = ordenPago;
     }
 
     public Conductor getConductor() {
@@ -55,6 +58,7 @@ public class ConductorPago {
     public Date getFechaTransaccion() {
         return fechaTransaccion;
     }
+
 
     public void setFechaTransaccion(Date fechaTransaccion) {
         this.fechaTransaccion = fechaTransaccion;

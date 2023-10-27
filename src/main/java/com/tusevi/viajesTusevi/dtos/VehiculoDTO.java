@@ -10,7 +10,6 @@ public class VehiculoDTO {
     private String modelo;
     private TipoVehiculo tipoVehiculo;
     private String color;
-    private Ubicacion ubicacionActual;
     private Byte[] cedulaAzul;
     private Byte[] seguro;
     private Set<Viaje> viajes;
@@ -22,7 +21,6 @@ public class VehiculoDTO {
         this.modelo = vehiculo.getModelo();
         this.tipoVehiculo = vehiculo.getTipoVehiculo();
         this.color = vehiculo.getColor();
-        this.ubicacionActual = vehiculo.getUbicacionActual();
         this.cedulaAzul = vehiculo.getCedulaAzul();
         this.seguro = vehiculo.getSeguro();
         this.viajes = vehiculo.getViajes();
@@ -49,11 +47,6 @@ public class VehiculoDTO {
     public String getColor() {
         return color;
     }
-
-    public Ubicacion getUbicacionActual() {
-        return ubicacionActual;
-    }
-
     public Byte[] getCedulaAzul() {
         return cedulaAzul;
     }

@@ -13,7 +13,8 @@ public class UsuarioDTO {
     private long DNI;
     private String nombre;
     private String apellido;
-    private Integer celular;
+    private String contraseña;
+    private String celular;
     private String correo;
     private String ubicacionActual;
     private Set<Viaje> viajes;
@@ -26,10 +27,11 @@ public class UsuarioDTO {
         this.apellido = usuario.getApellido();
         this.celular = usuario.getCelular();
         this.correo = usuario.getCorreo();
-        this.ubicacionActual = usuario.getUbicacionActual();
+        //this.ubicacionActual = usuario.getUbicacionActual();
         this.viajes = usuario.getViajes();
         this.comentarios = usuario.getComentarios();
         this.ordenPagos = usuario.getOrdenPagos();
+        this.contraseña = usuario.getContraseña();
     }
 
     public long getId() {
@@ -48,7 +50,11 @@ public class UsuarioDTO {
         return apellido;
     }
 
-    public Integer getCelular() {
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public String getCelular() {
         return celular;
     }
 

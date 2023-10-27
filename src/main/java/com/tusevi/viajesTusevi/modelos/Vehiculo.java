@@ -16,14 +16,13 @@ public class Vehiculo {
     private String modelo;
     private TipoVehiculo tipoVehiculo;
     private String color;
-    private Ubicacion ubicacionActual;
     private Byte[] cedulaAzul;
     private Byte[] seguro;
     @OneToMany(mappedBy = "vehiculo", fetch = FetchType.EAGER)
     private Set<Viaje> viajes = new HashSet<>();
-    @OneToOne(mappedBy = "vehiculo", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Conductor conductor;
-    @OneToOne(mappedBy = "vehiculo",fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Ubicacion ubicacion;
     public Vehiculo() {
     }
@@ -75,14 +74,6 @@ public class Vehiculo {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public Ubicacion getUbicacionActual() {
-        return ubicacionActual;
-    }
-
-    public void setUbicacionActual(Ubicacion ubicacionActual) {
-        this.ubicacionActual = ubicacionActual;
     }
 
     public Byte[] getCedulaAzul() {

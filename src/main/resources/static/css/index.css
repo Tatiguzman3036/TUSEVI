@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body{
+  height: 100vh !important;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #0DD9B3 !important;
+  background-image: url(../imagenes/pngwing.com.png);
+}
+h1{
+  font-size: 50px !important;
+}
+h5{
+  font-size: 25px !important;
+}
+.imagen{
+  background-color: rgba(240, 255, 255, 0.815);
+  border-radius: 20px !important;
+  padding: 1rem !important;
+  margin: 20px 0 0 20px !important;
+    height: 38vh !important;
+    width: 85vw !important;
+}
+
+a {
+  font-size: 20px !important;
+    all: unset;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.6em 2em;
+    border: rgb(226, 235, 226) solid 0.15em;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border 300ms, color 300ms;
+    user-select: none;
+    border-radius: 15px !important;
+  }
+  
+  a  {
+    z-index: 1;
+  }
+  
+  a:hover {
+    color: #212121;
+  }
+  
+  a:active {
+    border-color: #041926;
+  }
+  
+  a::after, a::before {
+    content: "";
+    position: absolute;
+    width: 9em;
+    aspect-ratio: 1;
+    background: rgb(17, 20, 18);
+    opacity: 50%;
+    border-radius: 50%;
+    transition: transform 500ms, background 300ms;
+  }
+  
+  a::before {
+    left: 0;
+    transform: translateX(-8em);
+  }
+  
+  a::after {
+    right: 0;
+    transform: translateX(8em);
+  }
+  
+  a:hover:before {
+    transform: translateX(-1em);
+  }
+  
+  a:hover:after {
+    transform: translateX(1em);
+  }
+  
+  a:active:before,
+  a:active:after {
+    background: #041926;
+  }

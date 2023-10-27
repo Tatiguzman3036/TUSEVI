@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh !important;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #0DD9B3 !important;
+    background-image: url(../imagenes/pngwing.com.png);
+  }
+header{
+    height: 10vh !important;
+}
+main{
+    height: 90vh !important;
+}
+.icon {
+    width: 30px !important;
+    height: 35px !important;
+    margin-right: 10px !important;
+}
+.nav-link:hover{
+    transform: scale(1.03);
+}
+.boton:hover{
+    color: beige;
+    background-color: rgb(51, 49, 49);
+    font-weight: 500;
+    transform: scale(1.05);
+}

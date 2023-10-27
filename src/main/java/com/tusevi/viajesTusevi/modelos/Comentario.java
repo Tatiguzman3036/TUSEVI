@@ -17,9 +17,9 @@ public class Comentario {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "comentario_id")
     private Usuario usuario;
-    @OneToOne(mappedBy = "comentario", fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private Conductor conductor;
-    @OneToOne(mappedBy = "comentario", fetch = FetchType.EAGER)
+    @OneToOne( fetch = FetchType.EAGER)
     private Viaje viaje;
 
     public Comentario() {

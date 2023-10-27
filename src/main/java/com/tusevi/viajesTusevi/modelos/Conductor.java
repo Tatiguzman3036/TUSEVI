@@ -15,26 +15,28 @@ public class Conductor {
     private long DNI;
     private String nombre;
     private String apellido;
-    private Integer celular;
+    private String contraseña;
+    private String celular;
     private String correo;
     private Byte[] registroDeConducir;
-    @OneToOne(mappedBy = "conductor", fetch = FetchType.EAGER)
+    @OneToOne( fetch = FetchType.EAGER)
     private Comentario comentario;
     @OneToMany(mappedBy = "conductor", fetch = FetchType.EAGER)
     private Set<Viaje> viajes = new HashSet<>();
-    @OneToMany(mappedBy = "conductores")
+    @ManyToMany(mappedBy = "conductor")
     private Set<ConductorPago> conductorPagos = new HashSet<>();
 
     public Conductor() {
     }
 
-    public Conductor(long DNI, String nombre, String apellido, Integer celular, String correo, Byte[] registroDeConducir) {
+    public Conductor(long DNI, String nombre, String apellido, String celular, String correo,String contraseña) {
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.correo = correo;
-        this.registroDeConducir = registroDeConducir;
+        this.contraseña = contraseña;
+//        this.registroDeConducir = registroDeConducir;
     }
 
     public long getId() {
@@ -69,11 +71,11 @@ public class Conductor {
         this.apellido = apellido;
     }
 
-    public Integer getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
@@ -93,6 +95,14 @@ public class Conductor {
         this.registroDeConducir = registroDeConducir;
     }
 
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
     public Comentario getComentario() {
         return comentario;
     }
@@ -109,12 +119,11 @@ public class Conductor {
         viajes.add(viaje);
     }
 
-    public Set<ConductorPago> getTransacciones() {
+    public Set<ConductorPago> getConductorPago() {
         return conductorPagos;
     }
 
-    public void addConductorPago(ConductorPago conductorPago){
-        conductorPago.setConductor(this);
-        conductorPagos.add(conductorPago);
+    public void setConductorPago(Set<ConductorPago> conductorPago) {
+        this.conductorPagos = conductorPago;
     }
 }

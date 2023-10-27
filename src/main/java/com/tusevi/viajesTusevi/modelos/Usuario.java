@@ -15,7 +15,8 @@ public class Usuario {
     private long DNI;
     private String nombre;
     private String apellido;
-    private Integer celular;
+    private String contraseña;
+    private String celular;
     private String correo;
     private String ubicacionActual;
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
@@ -28,13 +29,14 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(long DNI,String nombre, String apellido, Integer celular, String correo, String ubicacionActual) {
+    public Usuario(long DNI,String nombre, String apellido, String celular, String correo,String contraseña) {
         this.DNI = DNI;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.correo = correo;
-        this.ubicacionActual = ubicacionActual;
+        this.contraseña =contraseña;
+//        this.ubicacionActual = ubicacionActual;
     }
     public long getId() {
         return id;
@@ -67,16 +69,24 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public Integer getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
     public String getCorreo() {
         return correo;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public void setCorreo(String correo) {
