@@ -19,7 +19,7 @@ public class OrdenPago {
     private LocalDateTime fecha;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private UsuarioPaso2 usuarioPaso2;
     @ManyToMany(mappedBy = "ordenPago")
     private Set<ConductorPago> conductorPagos = new HashSet<>();
 
@@ -74,12 +74,12 @@ public class OrdenPago {
         this.fecha = fecha;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioPaso2(UsuarioPaso2 usuarioPaso2) {
+        this.usuarioPaso2 = usuarioPaso2;
     }
 
     public Set<ConductorPago> getConductorPagos() {

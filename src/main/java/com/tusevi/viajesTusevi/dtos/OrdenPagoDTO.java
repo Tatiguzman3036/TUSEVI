@@ -12,7 +12,7 @@ public class OrdenPagoDTO {
     private Integer costo;
     private EstadoDePago estadoDePago;
     private LocalDateTime fecha;
-    private Usuario usuario;
+    private UsuarioPaso2 usuarioPaso2;
     private Set<ConductorPago> conductorPagos;
     public OrdenPagoDTO(OrdenPago ordenPago){
         this.id = ordenPago.getId();
@@ -20,7 +20,7 @@ public class OrdenPagoDTO {
         this.costo = ordenPago.getCosto();
         this.estadoDePago =ordenPago.getEstadoDePago();
         this.fecha = ordenPago.getFecha();
-        this.usuario = ordenPago.getUsuario();
+        this.usuarioPaso2 = ordenPago.getUsuarioPaso2();
         this.conductorPagos = ordenPago.getConductorPagos();
     }
 
@@ -44,8 +44,8 @@ public class OrdenPagoDTO {
         return fecha;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
 
     public Set<ConductorPago> getConductorPagos() {

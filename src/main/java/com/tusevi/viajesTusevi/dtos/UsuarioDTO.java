@@ -1,45 +1,31 @@
 package com.tusevi.viajesTusevi.dtos;
 
-import com.tusevi.viajesTusevi.modelos.Comentario;
-import com.tusevi.viajesTusevi.modelos.OrdenPago;
-import com.tusevi.viajesTusevi.modelos.Usuario;
-import com.tusevi.viajesTusevi.modelos.Viaje;
+import com.tusevi.viajesTusevi.modelos.*;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class UsuarioDTO {
     private long id;
-    private long DNI;
     private String nombre;
     private String apellido;
     private String contraseña;
-    private String celular;
     private String correo;
-    private String ubicacionActual;
-    private Set<Viaje> viajes;
-    private Set<Comentario> comentarios;
-    private Set<OrdenPago> ordenPagos;
+    private Integer codigoValidacion; // Código de validación
+    private boolean registroCompleto = false; // Indica si el registro está completo
+    private UsuarioPaso2 usuarioPaso2;
     public UsuarioDTO(Usuario usuario){
         this.id = usuario.getId();
-        this.DNI = usuario.getDNI();
         this.nombre = usuario.getNombre();
         this.apellido = usuario.getApellido();
-        this.celular = usuario.getCelular();
         this.correo = usuario.getCorreo();
-        //this.ubicacionActual = usuario.getUbicacionActual();
-        this.viajes = usuario.getViajes();
-        this.comentarios = usuario.getComentarios();
-        this.ordenPagos = usuario.getOrdenPagos();
         this.contraseña = usuario.getContraseña();
+        this.codigoValidacion = usuario.getCodigoValidacion();
+        this.registroCompleto = usuario.isRegistroCompleto();
+        this.usuarioPaso2 = usuario.getUsuarioPaso2();
     }
 
     public long getId() {
         return id;
-    }
-
-    public long getDNI() {
-        return DNI;
     }
 
     public String getNombre() {
@@ -53,28 +39,18 @@ public class UsuarioDTO {
     public String getContraseña() {
         return contraseña;
     }
-
-    public String getCelular() {
-        return celular;
-    }
-
     public String getCorreo() {
         return correo;
     }
-
-    public String getUbicacionActual() {
-        return ubicacionActual;
+    public Integer getCodigoValidacion() {
+        return codigoValidacion;
     }
 
-    public Set<Viaje> getViajes() {
-        return viajes;
+    public boolean isRegistroCompleto() {
+        return registroCompleto;
     }
 
-    public Set<Comentario> getComentarios() {
-        return comentarios;
-    }
-
-    public Set<OrdenPago> getOrdenPagos() {
-        return ordenPagos;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
 }

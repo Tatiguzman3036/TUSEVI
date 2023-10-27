@@ -14,7 +14,7 @@ public class ViajeDTO {
     private Comentario comentario;
     private Ubicacion ubicacion;
     private Vehiculo vehiculo;
-    private Usuario usuario;
+    private UsuarioPaso2 usuarioPaso2;
     private Conductor conductor;
     public ViajeDTO(Viaje viaje){
         this.id = viaje.getId();
@@ -26,7 +26,7 @@ public class ViajeDTO {
         this.comentario = viaje.getComentario();
         this.ubicacion = viaje.getUbicacion();
         this.vehiculo = viaje.getVehiculo();
-        this.usuario = viaje.getUsuario();
+        this.usuarioPaso2 = viaje.getUsuarioPaso2();
         this.conductor = viaje.getConductor();
     }
 
@@ -66,8 +66,8 @@ public class ViajeDTO {
         return vehiculo;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
 
     public Conductor getConductor() {

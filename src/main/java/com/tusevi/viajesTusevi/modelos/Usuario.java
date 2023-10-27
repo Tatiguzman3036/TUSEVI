@@ -3,40 +3,30 @@ package com.tusevi.viajesTusevi.modelos;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(strategy = "native", name = "native")
     private long id;
-    private long DNI;
     private String nombre;
     private String apellido;
     private String contraseña;
-    private String celular;
     private String correo;
-    private String ubicacionActual;
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    private Set<Viaje> viajes = new HashSet<>();
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    private Set<Comentario> comentarios = new HashSet<>();
-    @OneToMany (mappedBy = "usuario",fetch = FetchType.EAGER)
-    private Set<OrdenPago> ordenPagos = new HashSet<>();
-
+    private Integer codigoValidacion; // Código de validación
+    private boolean registroCompleto = false; // Indica si el registro está completo
+    @OneToOne
+    private UsuarioPaso2 usuarioPaso2;
     public Usuario() {
     }
 
-    public Usuario(long DNI,String nombre, String apellido, String celular, String correo,String contraseña) {
-        this.DNI = DNI;
+    public Usuario(long DNI,String nombre, String apellido,String correo,String contraseña,Integer codigoValidacion,boolean registroCompleto) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.celular = celular;
         this.correo = correo;
         this.contraseña =contraseña;
-//        this.ubicacionActual = ubicacionActual;
+        this.codigoValidacion = codigoValidacion;
+        this.registroCompleto = registroCompleto;
     }
     public long getId() {
         return id;
@@ -44,13 +34,6 @@ public class Usuario {
 
     public void setId(long id) {
         this.id = id;
-    }
-    public long getDNI() {
-        return DNI;
-    }
-
-    public void setDNI(long DNI) {
-        this.DNI = DNI;
     }
 
     public String getNombre() {
@@ -68,15 +51,6 @@ public class Usuario {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
     public String getCorreo() {
         return correo;
     }
@@ -93,38 +67,27 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getUbicacionActual() {
-        return ubicacionActual;
+    public Integer getCodigoValidacion() {
+        return codigoValidacion;
     }
 
-    public void setUbicacionActual(String ubicacionActual) {
-        this.ubicacionActual = ubicacionActual;
+    public void setCodigoValidacion(Integer codigoValidacion) {
+        this.codigoValidacion = codigoValidacion;
     }
 
-    public Set<Viaje> getViajes() {
-        return viajes;
+    public boolean isRegistroCompleto() {
+        return registroCompleto;
     }
 
-    public void setViajes(Set<Viaje> viajes) {
-        this.viajes = viajes;
-    }
-    public void addViajes (Viaje viaje){
-        viaje.setUsuario(this);
-        viajes.add(viaje);
+    public void setRegistroCompleto(boolean registroCompleto) {
+        this.registroCompleto = registroCompleto;
     }
 
-    public Set<Comentario> getComentarios() {
-        return comentarios;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
-    public void addComentarios(Comentario comentario){
-        comentario.setUsuario(this);
-        comentarios.add(comentario);
-    }
-    public Set<OrdenPago> getOrdenPagos() {
-        return ordenPagos;
-    }
-    public void addPagos (OrdenPago ordenPago){
-        ordenPago.setUsuario(this);
-        ordenPagos.add(ordenPago);
+
+    public void setUsuarioPaso2(UsuarioPaso2 usuarioPaso2) {
+        this.usuarioPaso2 = usuarioPaso2;
     }
 }

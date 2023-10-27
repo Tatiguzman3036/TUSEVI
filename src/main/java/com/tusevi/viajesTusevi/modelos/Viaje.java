@@ -25,7 +25,7 @@ public class Viaje {
     private Vehiculo vehiculo;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "usuario_id")
-    private Usuario usuario;
+    private UsuarioPaso2 usuarioPaso2;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "conductor_id")
     private Conductor conductor;
@@ -88,12 +88,12 @@ public class Viaje {
         this.estado = estado;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioPaso2(UsuarioPaso2 usuarioPaso2) {
+        this.usuarioPaso2 = usuarioPaso2;
     }
 
     public Comentario getComentario() {

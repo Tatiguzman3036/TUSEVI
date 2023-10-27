@@ -30,7 +30,7 @@ public class AutenticacionWeb extends GlobalAuthenticationConfigurerAdapter {
     public void init(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.userDetailsService(inputEmail-> {
-            Usuario usuario = usuarioRepositorio.findByEmail(inputEmail);
+            Usuario usuario = usuarioRepositorio.findByCorreo(inputEmail);
             if (usuario != null) {
                 String adminEmail = usuario.getCorreo();
                 if (adminEmail.contains("admin")){
@@ -45,7 +45,7 @@ public class AutenticacionWeb extends GlobalAuthenticationConfigurerAdapter {
             }
         });
         auth.userDetailsService(inputEmail ->{
-            Conductor conductor = conductorRepositorio.findByEmail(inputEmail);
+            Conductor conductor = conductorRepositorio.findByCorreo(inputEmail);
             if (conductor != null){
                 String adminEmail = conductor.getCorreo();
                 if (adminEmail.contains("admin")) {

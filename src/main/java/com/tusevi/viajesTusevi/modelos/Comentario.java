@@ -16,7 +16,7 @@ public class Comentario {
     private LocalDateTime fecha;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "comentario_id")
-    private Usuario usuario;
+    private UsuarioPaso2 usuarioPaso2;
     @OneToOne(fetch = FetchType.EAGER)
     private Conductor conductor;
     @OneToOne( fetch = FetchType.EAGER)
@@ -63,12 +63,12 @@ public class Comentario {
         this.fecha = fecha;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioPaso2(UsuarioPaso2 usuarioPaso2) {
+        this.usuarioPaso2 = usuarioPaso2;
     }
 
     public Conductor getConductor() {

@@ -1,9 +1,6 @@
 package com.tusevi.viajesTusevi.dtos;
 
-import com.tusevi.viajesTusevi.modelos.Comentario;
-import com.tusevi.viajesTusevi.modelos.Conductor;
-import com.tusevi.viajesTusevi.modelos.Usuario;
-import com.tusevi.viajesTusevi.modelos.Viaje;
+import com.tusevi.viajesTusevi.modelos.*;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +9,7 @@ public class ComentarioDTO {
     private Integer calificacion;
     private String comentario;
     private LocalDateTime fecha;
-    private Usuario usuario;
+    private UsuarioPaso2 usuarioPaso2;
     private Conductor conductor;
     private Viaje viaje;
     public ComentarioDTO(Comentario comentario) {
@@ -20,7 +17,7 @@ public class ComentarioDTO {
         this.calificacion = comentario.getCalificacion();
         this.comentario = comentario.getComentario();
         this.fecha = comentario.getFecha();
-        this.usuario = comentario.getUsuario();
+        this.usuarioPaso2 = comentario.getUsuarioPaso2();
         this.conductor = comentario.getConductor();
         this.viaje = comentario.getViaje();
     }
@@ -41,8 +38,8 @@ public class ComentarioDTO {
         return fecha;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public UsuarioPaso2 getUsuarioPaso2() {
+        return usuarioPaso2;
     }
 
     public Conductor getConductor() {

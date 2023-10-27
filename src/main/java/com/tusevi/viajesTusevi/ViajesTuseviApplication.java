@@ -22,10 +22,10 @@ public class ViajesTuseviApplication {
 	@Bean
     public CommandLineRunner commandLineRunner(UsuarioRepositorio usuarioRepositorio, ConductorRepositorio conductorRepositorio){
     return args -> {
-        Usuario tatiana = new Usuario(28455455,"Tatiana","guzmán","3875901210","123@123.com","123");
-        usuarioRepositorio.save(tatiana);
-        Usuario manuel = new Usuario(25222666,"manuel", "soto", "1166448810","eña@1.com","123");
-        usuarioRepositorio.save(manuel);
+//        Usuario tatiana = n
+//        usuarioRepositorio.save(tatiana);
+//        Usuario manuel = new Usuario(25222666,"manuel", "soto", "1166448810","eña@1.com","123");
+//        usuarioRepositorio.save(manuel);
         Conductor conductor1 = new Conductor(25000222,"melba", "morel", "1140202020","melba@melba.com","123");
         Conductor conductor2 = new Conductor(45111666, "federico", "lala", "66554488","fede@fede.com","123");
         conductorRepositorio.save(conductor1);
