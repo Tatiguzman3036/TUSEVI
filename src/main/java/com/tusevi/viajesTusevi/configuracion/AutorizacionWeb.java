@@ -1,24 +1,26 @@
 package com.tusevi.viajesTusevi.configuracion;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @EnableWebSecurity
 @Configuration
 class AutorizacionWeb  {
 
     @Bean
-    protected SecurityFilterCha filterChain (HttpSecurity http) throws Exception {
+    protected SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                .requestMatchers("/api/login").permitAll()
-                .anyRequest().authenticated();
+                .antMatchers("/**").permitAll();
+//                .anyRequest().authenticated();
 
         http.formLogin()
                 .loginPage("/api/login")

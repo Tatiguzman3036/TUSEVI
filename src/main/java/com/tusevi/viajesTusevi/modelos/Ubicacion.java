@@ -1,7 +1,8 @@
 package com.tusevi.viajesTusevi.modelos;
 
-import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity
 public class Ubicacion {

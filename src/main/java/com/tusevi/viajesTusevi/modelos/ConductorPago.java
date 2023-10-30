@@ -1,11 +1,9 @@
 package com.tusevi.viajesTusevi.modelos;
 
-import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class ConductorPago {
